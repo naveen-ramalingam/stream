@@ -22,11 +22,31 @@
         input, button {
             margin: 5px;
         }
+        .xtream-details {
+            display: none;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
     <h1>IPTV Streamer</h1>
-    <input type="text" id="stream-url" placeholder="Enter .m3u8 URL or Xtream Code URL" />
+    <div>
+        <input type="radio" id="direct-url" name="stream-method" value="direct-url" checked>
+        <label for="direct-url">Direct URL</label>
+        <input type="radio" id="xtream-code" name="stream-method" value="xtream-code">
+        <label for="xtream-code">Xtream Code</label>
+    </div>
+    
+    <div id="direct-url-input">
+        <input type="text" id="stream-url" placeholder="Enter .m3u8 URL" />
+    </div>
+
+    <div id="xtream-code-input" class="xtream-details">
+        <input type="text" id="xtream-server" placeholder="Xtream Server URL" />
+        <input type="text" id="xtream-username" placeholder="Username" />
+        <input type="password" id="xtream-password" placeholder="Password" />
+    </div>
+
     <button onclick="loadStream()">Load Stream</button>
     <video id="video-player" controls></video>
 
